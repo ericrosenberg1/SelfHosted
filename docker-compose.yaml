@@ -1,0 +1,20 @@
+include:
+  - cloudflared/compose.yaml
+  - traefik/compose.yaml
+  - overseerr/compose.yaml
+  - radarr/compose.yaml
+  - sonarr/compose.yaml
+  - lidarr/compose.yaml
+  - bazarr/compose.yaml
+  - tautulli/compose.yaml
+  - prowlarr/compose.yaml
+  - qbittorrent/compose.yaml
+  - homarr/compose.yaml
+  - mealie/compose.yaml
+
+services:
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
